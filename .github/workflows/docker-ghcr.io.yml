@@ -61,7 +61,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=semver,suffix=-app-bullseye
+            type=semver,pattern={{version}},suffix=-app-bullseye
             type=ref,event=tag,suffix=-app-bullseye
             type=raw,value=app-bullseye,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
 
